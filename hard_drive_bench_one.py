@@ -21,3 +21,22 @@ import os
              file.write(buffer)
          end_time = time.time()
          elapsed_time += end_time - start_time
+     
+      # Read the same file, 100 bytes at a time
+     with open(file_name, "rb") as file:
+         start_time = time.time()
+         while file.read(chunk_size):
+             pass  # Dummy operation
+         end_time = time.time()
+         elapsed_time += end_time - start_time
+ 
+      # Output the results with color-coding
+     print(COLOR_YELLOW + "Disk I/O Benchmark:" + COLOR_RESET)
+     print(COLOR_GREEN + "File System Operation Speed Test" + COLOR_RESET)
+     print(COLOR_RED + f"Total time for sequential read/write operations: {elapsed_time} seconds" + COLOR_RESET)
+ 
+     # Clean up by deleting the test file
+     os.remove(file_name)
+ 
+ if __name__ == "__main__":
+     perform_disk_io_benchmark()
