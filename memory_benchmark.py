@@ -24,3 +24,16 @@ import numpy as np
      # Iterate over the array to simulate read operations
      for index in range(array_size):
          temporary_value_holder = large_array[index]
+
+     operation_end_time = time.time()
+     array_operations_time = operation_end_time - operation_start_time
+ 
+     # Output the results with color coding
+     print(YELLOW_TEXT + "Memory Benchmark 3:" + RESET_TEXT)
+     print(GREEN_TEXT + "RAM Read/Write Speed Test" + RESET_TEXT)
+     print(RED_TEXT + f"Total time for array operations (4 bytes each): {array_operations_time:.2f} seconds" + RESET_TEXT)
+ 
+ if __name__ == "__main__":
+     execute_memory_benchmark()
+ 
+ 
