@@ -14,3 +14,16 @@ import os
  
      # File name for the benchmarking process
      benchmark_file = "benchmarkFileOneBillionBytes.txt"
+ 
+     # Writing 1 billion bytes to the file in chunks of 10,000 bytes
+     with open(benchmark_file, "wb") as file:
+         start_time = time.time()
+         buffer = b'B' * write_read_chunk_size  # Change 'A' to 'B' for a slight variation
+         total_bytes_written = 0
+ 
+         while total_bytes_written < file_target_size:
+             file.write(buffer)
+             total_bytes_written += write_read_chunk_size
+ 
+         end_time = time.time()
+         total_operation_time += end_time - start_time
