@@ -10,3 +10,13 @@ import time
      cumulative_time = 0
      base_value = 8.4
      result = 0
+  
+     # Perform 10^10 additions of double-precision floating-point numbers
+     start_time = time.time()
+     for _ in range(100000):
+         for _ in range(100000):
+             result = base_value + base_value
+     end_time = time.time()
+     cumulative_time += end_time - start_time
+ 
+     
