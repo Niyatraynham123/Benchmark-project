@@ -27,3 +27,25 @@ import os
  
          end_time = time.time()
          total_operation_time += end_time - start_time
+ 
+     # Reading the file in chunks of 10,000 bytes
+     with open(benchmark_file, "rb") as file:
+         start_time = time.time()
+         read_buffer = bytearray(write_read_chunk_size)
+ 
+         while file.readinto(read_buffer) == write_read_chunk_size:
+             continue  # Explicitly using 'continue' for clarity
+ 
+         end_time = time.time()
+         total_operation_time += end_time - start_time
+ 
+      # Output the benchmark results
+     print(YELLOW_TEXT + "Benchmark 5:" + RESET_TEXT)
+     print(GREEN_TEXT + "Disk I/O Benchmark 2" + RESET_TEXT)
+     print(RED_TEXT + f"Total time for file operations (10,000 bytes operations): {total_operation_time} seconds" + RESET_TEXT)
+ 
+     # Clean up by deleting the benchmark file
+     os.remove(benchmark_file)
+ 
+ if __name__ == "__main__":
+     run_file_io_benchmark()
