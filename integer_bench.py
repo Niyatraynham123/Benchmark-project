@@ -10,3 +10,12 @@ import time
      accumulated_time = 0
      test_value = 7
      calculation_result = 0
+
+     # Execute 10^10 additions of integer constants
+     beginning_time = time.time()
+     for _ in range(100000):
+         for _ in range(100000):
+             calculation_result = test_value + test_value
+     completion_time = time.time()
+     accumulated_time += completion_time - beginning_time
+     
